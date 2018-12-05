@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,10 +26,10 @@ export class AuthService {
          (resolve,reject)=>{
             firebase.auth().signInWithEmailAndPassword(email,password).then(
                ()=>{
-                resolve();
+                  resolve();
                },
                (error)=>{
-               reject(error);
+                  reject(error);
                }
             );
          }
@@ -36,6 +37,7 @@ export class AuthService {
    }
 
    signOutUser(){
+      console.log("in auth service, sign out");
       firebase.auth().signOut();
    }
 }
