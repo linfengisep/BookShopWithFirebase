@@ -1,27 +1,42 @@
-# Bookshop
+#Bookshop
+1.D’abord, pensez la structure du projet:
+ng new bookshop --style=scss --skip-tests=true
+//—skip-tests=true:ne pas générer les fichiers de tests.
+//-style=scss: avoir le style scss
+//components
+ng g c auth/signup
+ng g c auth/signin
+ng g c book-list
+ng g c book-list/single-book
+ng g c book-list/book-form
+ng g c header
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+//services
+ng g s services/auth
+ng g s services/books
+ng g s services/auth-guards
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+//bootstrap
+npm install bootstrap --save
+//change bootstrap version
 
-## Code scaffolding
+npm install --save bootstrap@3.3.7
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+//add boostrap css in the project
+"../node_modules/bootstrap/dist/css/bootstrap.css"
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+import service in providers
+FormsModule  depuis @angular/forms
+ReactiveFormsModule  depuis @angular/forms
+HttpClientModule    depuis @angular/common/http
 
-## Running unit tests
+//routing pour la page
+edit navbar
+include header dans le app.html and add a container for the content of different pages.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+//install firebase
+npm install firebase --save
+go to firebase, create a project,copy the configuration script, add it in the contructor of app.component.ts.
+choose a way to connect for authentification like email/facebook etc
