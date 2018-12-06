@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import { FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
@@ -29,15 +29,14 @@ export class SigninComponent implements OnInit {
      });
   }
 
-  onSubmit(){
-   const email = this.signInForm.get('email').value;
-   const password = this.signInForm.get('password').value;
-   this.authService.signInUser(email,password).then(
-   ()=>{
-      this.router.navigate(['/books']);
-   },(error)=>{
-      this.errorMessage = error;
-   })
-   );
-  }
+   onSubmit(){
+      const email = this.signInForm.get('email').value;
+      const password = this.signInForm.get('password').value;
+         this.authService.signInUser(email,password).then(
+            ()=>{
+               this.router.navigate(['/books']);
+            },(error)=>{
+               this.errorMessage = error;
+            });
+   }
 }

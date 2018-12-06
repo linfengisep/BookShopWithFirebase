@@ -1,7 +1,8 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BooksService } from '../services/books.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { Book } from '../models/Book.model';
 
 @Component({
   selector: 'app-book-list',
@@ -21,11 +22,13 @@ export class BookListComponent implements OnInit,OnDestroy{
             this.books=books;
          }
       )
+      this.booksService.getBooks();
       this.booksService.emitBooks();
    }
 
-   onNewBooks(){
-      this.router.navigate(['/books','new'])
+   onNewBook(){
+      //console.log("to new book page");
+      this.router.navigate(['/books','new']);
    }
 
    onDeleteBook(book:Book){
@@ -33,7 +36,7 @@ export class BookListComponent implements OnInit,OnDestroy{
    }
 
    onViewBook(id:number){
-      this.router.navigate(['/books','view',id])
+      this.router.navigate(['/books','view',id]);
    }
 
    ngOnDestroy(){

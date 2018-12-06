@@ -1,3 +1,26 @@
-<p>
-  book-form works!
-</p>
+<div class="row">
+   <div class="col-sm-8 col-sm-offset-2">
+      <h2>Save a new Book</h2>
+      <form [formGroup] = "bookForm" (ngSubmit)="onSaveBook()">
+         <div class="form-group">
+            <label for="title">Title</label>
+            <input text="type" class="form-control" id="title" formControlName="title">
+         </div>
+
+         <div class="form-group">
+            <label for="author">Author</label>
+            <input text="type" class="form-control" id="author" formControlName="author">
+         </div>
+
+         <div class="form-group">
+            <h4>Add one photo</h4>
+            <input type="file" (change)="detectFile($event)" class="form-control" accept="image/*">
+            <p class="text-success" *ngIf="fileUploaded">file uploaded</p>
+         </div>
+
+         <button class="btn btn-success"
+               type="submit"
+               [disabled]="bookForm.invalid || fileIsUploading">Save</button>
+      </form>
+   </div>
+</div>

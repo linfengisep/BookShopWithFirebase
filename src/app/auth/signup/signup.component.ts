@@ -31,7 +31,6 @@ export class SignupComponent implements OnInit {
    //console.log("form is clicked.");
    const email = this.signUpForm.get('email').value;
    const password = this.signUpForm.get('password').value;
-   console.log("email"+email+",pass"+password);
    this.authService.createNewUser(email,password).then(
       ()=>{
          //console.log("success");

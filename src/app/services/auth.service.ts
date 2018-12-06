@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
 export class AuthService {
 
   constructor() { }
+
   createNewUser(email:string,password:string){
       return new Promise(
          (resolve,reject)=>{
@@ -37,7 +38,6 @@ export class AuthService {
    }
 
    signOutUser(){
-      console.log("in auth service, sign out");
       firebase.auth().signOut();
    }
 }

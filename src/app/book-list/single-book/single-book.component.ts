@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,CanActivate } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { BooksService } from '../../services/books.service';
 import { Book } from '../../models/Book.model';
 
@@ -10,7 +10,7 @@ import { Book } from '../../models/Book.model';
 })
 export class SingleBookComponent implements OnInit {
    book:Book;
-   constructor(private route:CanActivate,
+   constructor(private route:ActivatedRoute,
                private booksService:BooksService,
                private router:Router
                ) { }
