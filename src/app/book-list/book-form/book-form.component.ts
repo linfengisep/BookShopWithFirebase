@@ -48,7 +48,6 @@ export class BookFormComponent implements OnInit {
             this.fileUrl = url;
             this.fileUploaded=true;
             this.fileIsUploading=false;
-            console.log('url is:'+url);
          }
       );
    }

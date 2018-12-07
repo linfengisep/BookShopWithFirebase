@@ -26,17 +26,16 @@ export class BookListComponent implements OnInit,OnDestroy{
       this.booksService.emitBooks();
    }
 
+   onViewBook(id:number){
+      this.router.navigate(['/books',id]);
+   }
+
    onNewBook(){
-      //console.log("to new book page");
       this.router.navigate(['/books','new']);
    }
 
    onDeleteBook(book:Book){
       this.booksService.deleteBook(book);
-   }
-
-   onViewBook(id:number){
-      this.router.navigate(['/books','view',id]);
    }
 
    ngOnDestroy(){

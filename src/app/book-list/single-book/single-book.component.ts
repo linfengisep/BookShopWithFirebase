@@ -9,17 +9,16 @@ import { Book } from '../../models/Book.model';
   styleUrls: ['./single-book.component.scss']
 })
 export class SingleBookComponent implements OnInit {
-   book:Book;
-   constructor(private route:ActivatedRoute,
-               private booksService:BooksService,
-               private router:Router
-               ) { }
+   book: Book;
+   constructor(private route: ActivatedRoute,
+               private booksService: BooksService,
+               private router: Router ) { }
 
    ngOnInit() {
       this.book = new Book('','');
       const id = this.route.snapshot.params['id'];
       this.booksService.getSingleBook(+id).then(
-         (book:Book)=>{
+         (book: Book)=>{
             this.book=book;
          });
    }

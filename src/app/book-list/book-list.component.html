@@ -5,6 +5,7 @@
          <button class="list-group-item"
                   *ngFor="let book of books; let i=index"
                   (click)="onViewBook(i)">
+
             <h3 class="list-group-item-heading">
                {{book.title}}
                <button class="btn btn-default pull-right" (click)="onDeleteBook(book)">

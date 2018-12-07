@@ -22,8 +22,8 @@ const appRoutes = [
    {path:'auth/signin',component:SigninComponent },
    {path:'auth/signup',component:SignupComponent },
    {path:'books',canActivate:[AuthGuardsService],component:BookListComponent },
-   {path:'books/new',component:BookFormComponent },
-   {path:'books/view/id',canActivate:[AuthGuardsService],component:SingleBookComponent },
+   {path:'books/new',canActivate:[AuthGuardsService],component:BookFormComponent },
+   {path:'books/:id',component:SingleBookComponent },
    {path:'', redirectTo:'/books',pathMatch:'full' },
    {path:'**', redirectTo:'/books'}
 ]

@@ -50,6 +50,17 @@ export class BooksService {
    }
 
    deleteBook(book:Book){
+      if(book.photo){
+         const storageRef = firebase.storage().refFromURL(book.photo)
+               .delete()
+               .then(
+                  ()=>{
+                     console.log('delete finished.');
+                  },
+                  (error)=>{
+                     console.log(error);
+                  });
+      }
       const bookIndexToDel = this.books.findIndex(
          (bookElement)=>{
             if(bookElement === book){
@@ -79,7 +90,9 @@ export class BooksService {
                   reject();
                },
                ()=>{
-                  resolve(upload.snapshot.downloadURL);
+                  upload.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                      resolve(downloadURL);
+                    });
                }
             );
          }
