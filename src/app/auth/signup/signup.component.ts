@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,9 @@ export class SignupComponent implements OnInit {
 
   constructor(private router:Router,
               private authService:AuthService,
-              private formBuilder:FormBuilder) { }
+              private formBuilder:FormBuilder,
+              private location: Location,
+            ) { }
 
   ngOnInit() {
    this.initForm();
@@ -41,4 +44,8 @@ export class SignupComponent implements OnInit {
          this.errorMessage = error;
       });
      }
+
+    back(){
+        this.location.back();
+    }
 }

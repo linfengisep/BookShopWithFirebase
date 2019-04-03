@@ -4,6 +4,8 @@ import { BooksService } from '../../services/books.service';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { Book } from '../../models/Book.model';
 
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-book-form',
   templateUrl: './book-form.component.html',
@@ -16,7 +18,8 @@ export class BookFormComponent implements OnInit {
    fileUploaded = false;
    constructor(private formBuilder:FormBuilder,
                private booksService:BooksService,
-               private router:Router
+               private router:Router,
+               private location:Location,
                ) { }
 
    ngOnInit() {
@@ -54,5 +57,9 @@ export class BookFormComponent implements OnInit {
 
    detectFile(event){
       this.onUploadFile(event.target.files[0]);
+   }
+
+   back(){
+      this.location.back();   
    }
 }

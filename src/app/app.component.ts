@@ -6,7 +6,6 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'bookshop';
   constructor(){
      var config = {
      apiKey: "AIzaSyA9BZebZzUFt7qtjHVA94WVhxYk7Xhd6dE",

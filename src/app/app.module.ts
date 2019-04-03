@@ -18,17 +18,6 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router,RouterModule } from '@angular/router';
 
-const appRoutes = [
-   {path:'auth/signin',component:SigninComponent },
-   {path:'auth/signup',component:SignupComponent },
-   {path:'books',canActivate:[AuthGuardsService],component:BookListComponent },
-   {path:'books/new',canActivate:[AuthGuardsService],component:BookFormComponent },
-   {path:'books/:id',component:SingleBookComponent },
-   {path:'', redirectTo:'/books',pathMatch:'full' },
-   {path:'**', redirectTo:'/books'}
-]
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,8 +33,7 @@ const appRoutes = [
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    HttpClientModule
   ],
   providers: [AuthGuardsService,AuthService,BooksService],
   bootstrap: [AppComponent]
