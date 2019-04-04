@@ -17,10 +17,10 @@
             <input type="file" (change)="detectFile($event)" class="form-control" accept="image/*">
             <p class="text-success" *ngIf="fileUploaded">file uploaded</p>
          </div>
-         <button class="btn btn-success pull-left"
+         <button class="btn pull-left btn-success"
                type="submit"
                [disabled]="bookForm.invalid || fileIsUploading">Save</button>
-        <button class="btn btn-primary pull-right" type="button" (click)="back()">Back</button>
+        <button class="btn btn-primary pull-right" (click)="back()">Back</button>
       </form>
    </div>
 </div>

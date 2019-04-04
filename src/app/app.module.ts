@@ -17,6 +17,9 @@ import { BooksService } from './services/books.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router,RouterModule } from '@angular/router';
+//angular material design;
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { Router,RouterModule } from '@angular/router';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [AuthGuardsService,AuthService,BooksService],
   bootstrap: [AppComponent]

@@ -60,6 +60,6 @@ export class BookFormComponent implements OnInit {
    }
 
    back(){
-      this.location.back();   
+      this.router.navigate(['/books']);
    }
 }
